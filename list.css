@@ -1,0 +1,27 @@
+table
+  {
+  border-collapse:collapse;
+  text-align:center;
+  }
+
+table, td, th
+  {
+  border:1px solid grey;
+  }
+  td{
+    padding:0 2px;
+    font-size:14px;
+    padding: 8px;
+  }
+  .equal{
+    color : white;
+    background: #76664f;
+  }
+  .small{
+    color : white;
+    background: #5b775e;  
+  }
+  .big{
+    color : white;
+    background: #5f71b3;
+  }
