@@ -91,7 +91,7 @@ var showData = function(sData){
 }
 var cacheData = "";
 var loadData = function(){
-  $.get('http://jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=50&r='+(new Date().getTime()),function(rs){
+  $.get('/yx/u/api/game-lottery/openIssues?id=11&issueCount=50&r='+(new Date().getTime()),function(rs){
     showTime();
     var data = rs.data;
     if(data == cacheData){

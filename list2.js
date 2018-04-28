@@ -91,7 +91,7 @@ var showData = function(sData){
 }
 var cacheData = "";
 var loadData = function(){
-  $.get('http://test.jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=50&r='+(new Date().getTime()),function(rs){
+  $.get('/yx/u/api/game-lottery/openIssues?id=11&issueCount=50&r='+(new Date().getTime()),function(rs){
     showTime();
     var data = rs.data;
     if(data == cacheData){
@@ -116,7 +116,7 @@ var showTime = function(){
 var showTh = function(){
   var aH = [];
   $.each(aConfig, function(){
-    aH.push('<td>龙</td><td>和</td><td>虎</td>');
+    aH.push('<th>龙</th><th>和</th><th>虎</th>');
   });
   $('#list_tr').append(aH.join(''));
 };
