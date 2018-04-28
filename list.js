@@ -115,18 +115,23 @@ var showTime = function(){
 };
 var showTh = function(){
   var aH = [];
-  $.each(aConfig, function(){
+  var aType = [];
+  $.each(aConfig, function(i, config){
+    aType.push('<th colspan="3">'+config[2]+'</th>');
     aH.push('<th>龙</th><th>和</th><th>虎</th>');
   });
-  $('#list_tr').append(aH.join(''));
+  $('#list_tr').append(aType.join(''));
+  $('#list_tr1').append(aH.join(''));
 };
 var showContent = function(){
   $('#content').html([
       '<table id="list">',
       '  <tr id="list_tr">',
-      '    <th>日期</th>',
-      '    <th>期数</th>',
-      '    <th>号码</th>',
+      '    <th rowspan="2">日期</th>',
+      '    <th rowspan="2">期数</th>',
+      '    <th rowspan="2">号码</th>',
+      '  </tr>',
+      '  <tr id="list_tr1">',
       '  </tr>',
       '</table>'
   ].join(''));
