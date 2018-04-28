@@ -1,6 +1,11 @@
 /*
-http://test.jinyang888.net/static/lottery-trend.html?id=11&w=1&q=50&chs=%E9%87%8D%E5%BA%86%E6%97%B6%E6%97%B6%E5%BD%A9
 https://raw.githack.com/
+
+step1:
+http://test.jinyang888.net/static/lottery-trend.html?id=11&w=1&q=50&chs=%E9%87%8D%E5%BA%86%E6%97%B6%E6%97%B6%E5%BD%A9
+step2:
+javascript:jQuery.getScript('https://raw.githack.com/Gukw/list/master/list1.js');void(0);
+
 */
 var aConfig = [
   [0,1,'万千'], //万千
@@ -84,12 +89,29 @@ var showData = function(sData){
     $('#list').append(sTr);
   });
 }
+var cacheData = "";
 var loadData = function(){
   $.get('http://test.jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=150&r='+(new Date().getTime()),function(rs){
+    showTime();
+    var data = rs.data;
+    if(data == cacheData){
+      return;
+    }
+    cacheData = data;
     showContent();
     showTh();
-    showData(rs.data);
+    showData(data);
   });
+};
+var formatTime = function(s){
+  if(s<10){
+    s = '0'+s;
+  }
+  return s;
+};
+var showTime = function(){
+  var dTime = new Date();
+  $("#time").html('最后更新时间：'+dTime.getFullYear()+'-'+(dTime.getMonth()+1) + '-'+dTime.getDate()+' '+formatTime(dTime.getHours())+':'+formatTime(dTime.getMinutes())+':'+formatTime(dTime.getSeconds()));
 };
 var showTh = function(){
   var aH = [];
@@ -99,16 +121,15 @@ var showTh = function(){
   $('#list_tr').append(aH.join(''));
 };
 var showContent = function(){
-  $('body').html([
+  $('#content').html([
       '<table id="list">',
       '  <tr id="list_tr">',
       '    <th>日期</th>',
       '    <th>期数</th>',
-      '    <th>数字</th>',
+      '    <th>号码</th>',
       '  </tr>',
       '</table>'
   ].join(''));
-  $('body').removeClass();
 };
 var showStyle = function(){
   var link = document.createElement('link'); 
@@ -119,9 +140,11 @@ var showStyle = function(){
 };
 $(function(){
   showStyle();
+  $('body').removeClass();
+  $("body").html('<div id="content"></div><div id="time"></div>');
 //  showData(sDemoData); 
   setInterval(function(){
     loadData();
-  },10000)
+  },5000)
 
 });
