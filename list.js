@@ -2,9 +2,9 @@
 https://raw.githack.com/
 
 step1:
-http://test.jinyang888.net/static/lottery-trend.html?id=11&w=1&q=50&chs=%E9%87%8D%E5%BA%86%E6%97%B6%E6%97%B6%E5%BD%A9
+http://jinyang888.net/static/lottery-trend.html?id=11&w=1&q=50&chs=%E9%87%8D%E5%BA%86%E6%97%B6%E6%97%B6%E5%BD%A9
 step2:
-javascript:jQuery.getScript('https://raw.githack.com/Gukw/list/master/list1.js');void(0);
+javascript:jQuery.getScript('https://raw.githack.com/Gukw/list/master/list.js');void(0);
 
 */
 var aConfig = [
@@ -91,7 +91,7 @@ var showData = function(sData){
 }
 var cacheData = "";
 var loadData = function(){
-  $.get('http://test.jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=150&r='+(new Date().getTime()),function(rs){
+  $.get('http://jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=50&r='+(new Date().getTime()),function(rs){
     showTime();
     var data = rs.data;
     if(data == cacheData){
@@ -116,7 +116,7 @@ var showTime = function(){
 var showTh = function(){
   var aH = [];
   $.each(aConfig, function(){
-    aH.push('<td>龙</td><td>和</td><td>虎</td>');
+    aH.push('<th>龙</th><th>和</th><th>虎</th>');
   });
   $('#list_tr').append(aH.join(''));
 };
