@@ -1,5 +1,6 @@
 /*
 http://test.jinyang888.net/static/lottery-trend.html?id=11&w=1&q=50&chs=%E9%87%8D%E5%BA%86%E6%97%B6%E6%97%B6%E5%BD%A9
+https://raw.githack.com/
 */
 var aConfig = [
   [0,1,'万千'], //万千
@@ -84,7 +85,9 @@ var showData = function(sData){
   });
 }
 var loadData = function(){
-  $.get('http://test.jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=150',function(rs){
+  $.get('http://test.jinyang888.net/yx/u/api/game-lottery/openIssues?id=11&issueCount=150&r='+(new Date().getTime()),function(rs){
+    showContent();
+    showTh();
     showData(rs.data);
   });
 };
@@ -108,13 +111,17 @@ var showContent = function(){
   $('body').removeClass();
 };
 var showStyle = function(){
-  $('head').append('<link type="text/css" rel="stylesheet" href="list.css">');
+  var link = document.createElement('link'); 
+  link.type = 'text/css';
+  link.rel = 'stylesheet'; 
+  link.href = 'https://raw.githack.com/Gukw/list/master/list.css'; 
+  document.getElementsByTagName("head")[0].appendChild(link);
 };
 $(function(){
-  showTh();
-  showContent();
   showStyle();
 //  showData(sDemoData); 
-  loadData();
+  setInterval(function(){
+    loadData();
+  },10000)
 
 });
