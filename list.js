@@ -41,22 +41,28 @@ var showCount = function(number,aPosition,bPosition,key){
   countOk(oKey, key);
   var aH = oKey[key];
   if(a > b){
-    aH[0] = '<td class="big">龙</td>';
+    aH[0] = '<td class="big %border%">龙</td>';
   }
   if(a == b){
-    aH[1] = '<td class="equal">和</td>';
+    aH[1] = '<td class="equal %border%">和</td>';
   }
   if(a < b){
-    aH[2] = '<td class="small">虎</td>';
+    aH[2] = '<td class="small %border%">虎</td>';
   }
   var aHtml = [];
   $.each(aH, function(i, s){
+    var ss;
     if(isNaN(s)){
-      aHtml.push(s);
+      ss = s;
     }else{
-      aHtml.push('<td>'+s+'</td>');
-
+      ss = '<td class="%border%">'+s+'</td>';
     }
+    var sp = "";
+    if(i == 0){
+      sp = "leftborder";
+    }
+    ss = ss.replace(/%border%/g,sp);
+    aHtml.push(ss);
   });
   return aHtml.join('');
 };
@@ -117,8 +123,8 @@ var showTh = function(){
   var aH = [];
   var aType = [];
   $.each(aConfig, function(i, config){
-    aType.push('<th colspan="3">'+config[2]+'</th>');
-    aH.push('<th>龙</th><th>和</th><th>虎</th>');
+    aType.push('<th colspan="3" class="leftborder">'+config[2]+'</th>');
+    aH.push('<th class="leftborder">龙</th><th>和</th><th>虎</th>');
   });
   $('#list_tr').append(aType.join(''));
   $('#list_tr1').append(aH.join(''));
