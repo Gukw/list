@@ -5,14 +5,13 @@ table
   }
 
 table, td, th
-  { border:1px solid grey;
+  { border:1px solid black;
   }
   td,th{
     text-align:center;
     min-width:1.2em;
-    padding:0 2px;
+    padding:2 6px;
     font-size:14px;
-    padding: 8px;
   }
   .equal{
     color : white;
@@ -27,7 +26,7 @@ table, td, th
     background: #829CDD;
   }
   .leftborder{
-    border-left:2px solid blue;
+    border-left:4px solid black;
   }
 #list{
   display:block;
