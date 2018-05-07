@@ -5,10 +5,10 @@ table
   }
 
 table, td, th
-  {
-  border:1px solid grey;
+  { border:1px solid grey;
   }
-  td{
+  td,th{
+    min-width:1.2em;
     padding:0 2px;
     font-size:14px;
     padding: 8px;
@@ -28,3 +28,12 @@ table, td, th
   .leftborder{
     border-left:2px solid blue;
   }
+#list{
+  display:block;
+  overflow-y:scroll;
+  height:500px;
+}
+.riqi{width:7em;}
+.qishu{width:5em}
+.haoma{width:5em}
+#list_table{margin-left:1px;}

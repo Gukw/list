@@ -2,7 +2,7 @@
 https://raw.githack.com/
 
 step1:
-http://jinyang888.net/static/lottery-trend.html?id=11&w=1&q=50&chs=%E9%87%8D%E5%BA%86%E6%97%B6%E6%97%B6%E5%BD%A9
+http://jinyang888.net/aboutUs#0
 step2:
 javascript:jQuery.getScript('https://raw.githack.com/Gukw/list/master/list.js');void(0);
 
@@ -80,9 +80,9 @@ var showTr = function(sLine){
   var qishu = sLine.split('|')[0].split('-')[1];
   var aTr = [];
   aTr.push('<tr>');
-  aTr.push('<td>'+riqi+'</td>');
-  aTr.push('<td>'+qishu+'期</td>');
-  aTr.push('<td>'+number+'</td>');
+  aTr.push('<td class="riqi">'+riqi+'</td>');
+  aTr.push('<td class="qishu">'+qishu+'期</td>');
+  aTr.push('<td class="haoma">'+number+'</td>');
   aTr.push(countTrResult(number));
   aTr.push('</tr>');
   return aTr.join('');
@@ -131,14 +131,25 @@ var showTh = function(){
 };
 var showContent = function(){
   $('#content').html([
-      '<table id="list">',
+      '<table id="list_table">',
+      '  <thead>',
       '  <tr id="list_tr">',
       '    <th rowspan="2">日期</th>',
       '    <th rowspan="2">期数</th>',
       '    <th rowspan="2">号码</th>',
       '  </tr>',
+      '  </thead>',
+      '  <tbody>',
       '  <tr id="list_tr1">',
+      '  <th class="riqi"></th>',
+      '  <th class="qishu"></th>',
+      '  <th class="haoma"></th>',
+      '  </tbody>',
+      '</table>',
+      '<table id="list">',
+      '  <tbody>',
       '  </tr>',
+      '  </tbody>',
       '</table>'
   ].join(''));
 };
@@ -153,9 +164,12 @@ $(function(){
   showStyle();
   $('body').removeClass();
   $("body").html('<div id="content"></div><div id="time"></div>');
-//  showData(sDemoData); 
+  showContent();
+  showTh();
+ // showData(sDemoData); 
   setInterval(function(){
     loadData();
   },5000)
+ $("#list").height($(window).height() - 80);
 
 });
