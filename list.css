@@ -8,6 +8,7 @@ table, td, th
   { border:1px solid grey;
   }
   td,th{
+    text-align:center;
     min-width:1.2em;
     padding:0 2px;
     font-size:14px;
