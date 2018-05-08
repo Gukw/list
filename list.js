@@ -107,6 +107,7 @@ var loadData = function(){
     showContent();
     showTh();
     showData(data);
+    $("#list").scrollTop($("#list").prop("scrollHeight"));
   });
 };
 var formatTime = function(s){
