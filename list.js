@@ -106,6 +106,7 @@ var loadData = function(){
     cacheData = data;
     showContent();
     showTh();
+    oKey = {};
     showData(data);
     $("#list").scrollTop($("#list").prop("scrollHeight"));
   });
