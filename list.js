@@ -1,10 +1,11 @@
 /*
 https://raw.githack.com/
 
+选试玩账号
 step1:
-http://jinyang888.net/aboutUs#0
+http://test.jinyang888.net/aboutUs#0
 step2:
-javascript:jQuery.getScript('https://raw.githack.com/Gukw/list/master/list.js');void(0);
+javascript:jQuery.getScript('https://raw.githack.com/Gukw/list/master/list.js?a='+new Date().getTime());void(0);
 
 */
 var aConfig = [
